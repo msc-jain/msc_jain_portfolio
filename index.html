@@ -289,5 +289,24 @@
   }
 </script>
 
+    function opentab(tabName) {
+  // Remove active classes from all tab-links
+  const tabLinks = document.querySelectorAll(".tab-links");
+  tabLinks.forEach((tab) => tab.classList.remove("active-link"));
+
+  // Remove active classes from all tab-contents
+  const tabContents = document.querySelectorAll(".tab-contents");
+  tabContents.forEach((content) => content.classList.remove("active-tab"));
+
+  // Add active class to the clicked tab-link
+  document
+    .querySelector(`.tab-links[onclick="opentab('${tabName}')"]`)
+    .classList.add("active-link");
+
+  // Add active class to the corresponding tab-content
+  document.getElementById(tabName).classList.add("active-tab");
+}
+
+
   </body>
 </html>
